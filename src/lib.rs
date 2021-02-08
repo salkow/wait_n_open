@@ -27,7 +27,7 @@ pub struct Opt {
     check_error: bool,
 }
 
-pub fn run_pbs_script(pbs_name: PathBuf) -> Result<String>
+fn run_pbs_script(pbs_name: PathBuf) -> Result<String>
 {
 	let output = Command::new("qsub").arg(&pbs_name).output()
 		.with_context(|| format!("Error while running the PBS script: {}", pbs_name.display()))?;
